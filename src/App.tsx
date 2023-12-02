@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from './logo.svg';
 import { rotate } from './styles/keyframes';
+import GlobalStyle from './styles/GlobalStyle';
+import Button from './Button';
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -39,8 +41,18 @@ const StyledLogo = styled.img.attrs({
 `;
 
 function App(): JSX.Element {
+  const [$light, setLightTheme] = useState<boolean>(false);
   return (
     <AppWrapper>
+      <GlobalStyle $light={$light} />
+      <Button
+        handleClick={() => {
+          setLightTheme(!$light);
+        }}
+        $light={$light}
+      >
+        Set theme to {$light ? 'dark' : 'light'}
+      </Button>
       <StyledHeader>
         <StyledLogo />
         <p>
