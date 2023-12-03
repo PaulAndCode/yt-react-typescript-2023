@@ -6,10 +6,11 @@ interface StyledButtonProps {
 }
 type ButtonProps = PropsWithChildren<{
   handleClick?: () => void;
+  className?: string;
 }> &
   StyledButtonProps;
 
-const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   ${(props) =>
     props.$light != null && props.$light
       ? css`
@@ -30,9 +31,9 @@ const StyledButton = styled.button<StyledButtonProps>`
 `;
 
 const Button: FC<ButtonProps> = (props) => {
-  const { children, handleClick, $light } = props;
+  const { className, children, handleClick, $light } = props;
   return (
-    <StyledButton onClick={handleClick} $light={$light}>
+    <StyledButton className={className} onClick={handleClick} $light={$light}>
       {children}
     </StyledButton>
   );

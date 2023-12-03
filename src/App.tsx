@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import logo from './logo.svg';
 import { rotate } from './styles/keyframes';
 import GlobalStyle from './styles/GlobalStyle';
-import Button from './Button';
+import Button, { StyledButton } from './Button';
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -40,11 +40,52 @@ const StyledLogo = styled.img.attrs({
   }
 `;
 
+const StyledBlueButton = styled(StyledButton)`
+  color: #61dafb;
+  border-color: #61dafb;
+  text-decoration: none;
+`;
+
+const StyledYellowButton = styled(Button)`
+  color: #8b8000;
+  border-color: #8b8000;
+  text-decoration: none;
+`;
+
 function App(): JSX.Element {
   const [$light, setLightTheme] = useState<boolean>(false);
   return (
     <AppWrapper>
       <GlobalStyle $light={$light} />
+      <StyledYellowButton
+        handleClick={() => {
+          alert('it was all yellow');
+        }}
+      >
+        Yellow Button
+      </StyledYellowButton>
+      <StyledBlueButton
+        as="a"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        I am actually a link
+      </StyledBlueButton>
+      <StyledBlueButton
+        onClick={() => {
+          alert('blue');
+        }}
+      >
+        Blue Button
+      </StyledBlueButton>
+      <StyledButton
+        onClick={() => {
+          alert('hello');
+        }}
+      >
+        Hello
+      </StyledButton>
       <Button
         handleClick={() => {
           setLightTheme(!$light);
