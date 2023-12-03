@@ -1,5 +1,5 @@
 import React, { type FC, type PropsWithChildren } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface StyledButtonProps {
   $light?: boolean;
@@ -11,18 +11,7 @@ type ButtonProps = PropsWithChildren<{
   StyledButtonProps;
 
 export const StyledButton = styled.button<StyledButtonProps>`
-  ${(props) =>
-    props.$light != null && props.$light
-      ? css`
-          background: #282c34;
-          color: white;
-          border: 2px solid #282c34;
-        `
-      : css`
-          border: 2px solid #282c34;
-          background: white;
-          color: #282c34;
-        `}
+  ${(props) => props.theme.current.button}
 
   font-size: 1em;
   margin: 1em;
