@@ -12,11 +12,7 @@ type ButtonProps = PropsWithChildren<{
 
 export const StyledButton = styled.button<StyledButtonProps>`
   ${(props) => props.theme.current.button}
-
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
+  ${(props) => props.theme.button}
 `;
 
 const Button: FC<ButtonProps> = (props) => {

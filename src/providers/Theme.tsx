@@ -2,6 +2,12 @@ import React, { type FC, type ReactNode } from 'react';
 import { css, ThemeProvider } from 'styled-components';
 
 const theme = {
+  button: css`
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border-radius: 3px;
+  `,
   light: {
     button: css`
       background: #282c34;
