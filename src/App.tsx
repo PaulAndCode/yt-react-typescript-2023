@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import { rotate } from './styles/keyframes';
 import GlobalStyle from './styles/GlobalStyle';
 import Button, { StyledButton } from './Button';
+import Theme from './providers/Theme';
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -55,53 +56,55 @@ const StyledYellowButton = styled(Button)`
 function App(): JSX.Element {
   const [$light, setLightTheme] = useState<boolean>(false);
   return (
-    <AppWrapper>
-      <GlobalStyle $light={$light} />
-      <StyledYellowButton
-        handleClick={() => {
-          alert('it was all yellow');
-        }}
-      >
-        Yellow Button
-      </StyledYellowButton>
-      <StyledBlueButton
-        as="a"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        I am actually a link
-      </StyledBlueButton>
-      <StyledBlueButton
-        onClick={() => {
-          alert('blue');
-        }}
-      >
-        Blue Button
-      </StyledBlueButton>
-      <StyledButton
-        onClick={() => {
-          alert('hello');
-        }}
-      >
-        Hello
-      </StyledButton>
-      <Button
-        handleClick={() => {
-          setLightTheme(!$light);
-        }}
-        $light={$light}
-      >
-        Set theme to {$light ? 'dark' : 'light'}
-      </Button>
-      <StyledHeader>
-        <StyledLogo />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <StyledLink>Learn React</StyledLink>
-      </StyledHeader>
-    </AppWrapper>
+    <Theme $light={$light}>
+      <AppWrapper>
+        <GlobalStyle $light={$light} />
+        <StyledYellowButton
+          handleClick={() => {
+            alert('it was all yellow');
+          }}
+        >
+          Yellow Button
+        </StyledYellowButton>
+        <StyledBlueButton
+          as="a"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          I am actually a link
+        </StyledBlueButton>
+        <StyledBlueButton
+          onClick={() => {
+            alert('blue');
+          }}
+        >
+          Blue Button
+        </StyledBlueButton>
+        <StyledButton
+          onClick={() => {
+            alert('hello');
+          }}
+        >
+          Hello
+        </StyledButton>
+        <Button
+          handleClick={() => {
+            setLightTheme(!$light);
+          }}
+          $light={$light}
+        >
+          Set theme to {$light ? 'dark' : 'light'}
+        </Button>
+        <StyledHeader>
+          <StyledLogo />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <StyledLink>Learn React</StyledLink>
+        </StyledHeader>
+      </AppWrapper>
+    </Theme>
   );
 }
 
