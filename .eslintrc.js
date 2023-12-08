@@ -21,4 +21,5 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {},
+  root: true,
 };
