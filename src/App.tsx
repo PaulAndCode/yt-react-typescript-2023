@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 import Button from './Button';
-import Theme from './providers/Theme';
-import Router from './providers/Router';
+import Theme from 'providers/Theme';
+import Router from 'providers/Router';
 
 const AppWrapper = styled.div`
   text-align: center;

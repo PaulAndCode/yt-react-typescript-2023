@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import styled from 'styled-components';
-import logo from '../logo.svg';
-import { rotate } from '../styles/keyframes';
+import logo from 'assets/logo.svg';
+import { rotate } from 'styles/keyframes';
 
 const StyledHeader = styled.header`
   // background-color: #282c34;
